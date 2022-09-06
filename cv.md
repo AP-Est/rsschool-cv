@@ -69,4 +69,34 @@ developments.
 * Time management
 * Effective meeting
 
+## Code examples 
 
+__Python:__
+```
+def time_track(func):
+    def surrogate(*args, **kwargs):
+        started_at = time.time()
+
+        result = func(*args, **kwargs)
+
+        ended_at = time.time()
+        elapsed = round(ended_at - started_at, 4)
+        print(f'Функция работала {elapsed} секунд(ы)')
+        return result
+    return surrogate    
+```
+__JS:__
+```
+function validatePIN (pin) {
+    let res
+    var array = (""+pin).split("").map(Number) 
+    for (let i = 0; i < array.length; i++) {
+        if (array.length !== 4 && array.length !== 6) {
+            res = false
+        }
+        else res = Number.isInteger(array[i])
+    }
+    
+    return res
+ }
+ ```
